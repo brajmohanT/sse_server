@@ -9,18 +9,14 @@ const removeClient= (id)=>{
 }
 
 const sendToAll = (data)=>{
-    const message = `data is this ${JSON.stringify(data)}\n \n`
-
-    clients.forEach(res=> res.write(message))
-
+    clients.forEach(res=> res.write(data))
 }
 
 const sendToClient = (id, data) =>{
      const res = clients.get(id);
     if (res) {
-        res.write(`data: ${JSON.stringify(data)}\n\n`);
+        res.write(data);
     }
-
 }
 
 export {addClient, removeClient, sendToAll, sendToClient}

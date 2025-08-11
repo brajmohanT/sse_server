@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import { addClient, removeClient } from './sseManager';
+import { addClient, removeClient } from './sseManager.js';
 import {v4 as uuidv4} from 'uuid'
 
 
