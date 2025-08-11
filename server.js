@@ -10,6 +10,7 @@ const app = express();
 //middleware
 app.use(express.json())
 
+
 // Error Handling in case of invalid JSON
 app.use((err, req, res, next)=>{
     if(err instanceof SyntaxError && err.status===400 && 'body' in err){

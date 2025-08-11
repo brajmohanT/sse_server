@@ -8,22 +8,31 @@ const readEntries = (req, res)=>{
     res.send("reding data from DB⚾")
 }
 
-const writeEmoji = (req, res) =>{
+const emojiThrow = (req, res) =>{
 
     const body = req.body
 
-    // body formate: {name:string, emoji:string, time:string}
+    // body formate:
+    /* 
+    {
+          emoji,
+          x,
+          y,
+          userId,
+          timestamp: Date.now()
+        }
+    */
 
-    if(!body.name || !body.emoji || !body.time){
+    if(!body.emoji || !body.x || !body.y || !body.userId || !body.timestamp){
         return res.status(400).json({error: "missing params"})
     }
 
-    sendToAll({name : body.name,emoji: body.emoji, time:body.time })
+    sendToAll({emoji: body.emoji, x: body.x, y: body.y, userId: body.userId, timestamp: body.timestamp })
 
     res.status(201).send({
-        message: "sharing emoji with others.",
+        message: "Emoji thrown successfully",
         code:200
     })
 }
 
-export {welcome, readEntries,writeEmoji}
+export {welcome, readEntries,emojiThrow}
