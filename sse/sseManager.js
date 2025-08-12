@@ -10,7 +10,7 @@ const removeClient= (id)=>{
 
 const sendToAll = (data)=>{
     const eventPackage = `event: emoji-throw\ndata: ${JSON.stringify(data)}\n\n`
-    clients.forEach(res=> res.write(response))
+    clients.forEach(res=> res.write(eventPackage))
 }
 
 const sendToClient = (id, data) =>{

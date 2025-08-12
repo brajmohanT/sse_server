@@ -2,10 +2,17 @@ import express from 'express';
 import apiRouter from './routes/apiRoutes.js';
 import dotenv from 'dotenv'
 import sseRouter from './sse/sseRoutes.js';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
+
+const corsOptions = {
+    origin: 'http://localhost:3001', 
+};
+
+app.use(cors(corsOptions));
 
 //middleware
 app.use(express.json())
