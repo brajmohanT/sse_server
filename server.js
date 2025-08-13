@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    origin: 'https://playemoji.netlify.app', 
+    origin: process.env.FRONT_END_URL_LOCAL, 
 };
 
 app.use(cors(corsOptions));
