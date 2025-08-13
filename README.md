@@ -20,6 +20,17 @@ Server-Sent Events enable **one-way communication** from server to client over H
 - [Server-Sent Events Guide - Ably](https://ably.com/topic/server-sent-events)
 - [Scaling Stateful Connections to Millions - Sahaj AI](https://www.sahaj.ai/scaling-stateful-connections-to-millions/)
 
+
+## 🧩 How It Works
+
+1. **Client Connection**: Frontend establishes SSE connection to `/events/emoji-stream`
+2. **Emoji Action**: User throws emoji → Frontend sends POST to `/api/emoji-throw`
+3. **Broadcast**: Server validates data and broadcasts to all connected SSE clients
+4. **Real-time Update**: All clients receive the emoji data instantly via SSE
+5. **Heartbeat**: Server sends periodic heartbeats to maintain connections
+
+
+
 ## 🏗️ Project Architecture
 
 ```
@@ -89,14 +100,6 @@ server_sent_events/
 └── db/
     └── triggers.sql       # Database triggers
 ```
-
-## 🧩 How It Works
-
-1. **Client Connection**: Frontend establishes SSE connection to `/events/emoji-stream`
-2. **Emoji Action**: User throws emoji → Frontend sends POST to `/api/emoji-throw`
-3. **Broadcast**: Server validates data and broadcasts to all connected SSE clients
-4. **Real-time Update**: All clients receive the emoji data instantly via SSE
-5. **Heartbeat**: Server sends periodic heartbeats to maintain connections
 
 ## 🎯 Built For
 
