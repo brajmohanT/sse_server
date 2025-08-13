@@ -1,4 +1,4 @@
-import pkg from 'pg'
+/* import pkg from 'pg'
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -13,4 +13,4 @@ const pool = new Pool({
     port: process.env.PGPORT
 })
 
-export default pool
+export default pool */
