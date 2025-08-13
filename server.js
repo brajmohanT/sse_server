@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    origin: process.env.FRONT_END_URL_LOCAL, 
+    origin: process.env.FRONT_END_URL, 
 };
 
 app.use(cors(corsOptions));
