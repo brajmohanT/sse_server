@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    origin: process.env.FRONT_END_URL, 
+    origin: process.env.FRONT_END_URL_LOCAL, 
 };
 
 app.use(cors(corsOptions));
@@ -31,7 +31,7 @@ app.use('/api', apiRouter)
 app.use('/events', sseRouter)
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 9001;
 app.listen(PORT, ()=>{
 console.log(`Server-Sent Events🎉🎊🐇🦒  ${PORT}`);
 })

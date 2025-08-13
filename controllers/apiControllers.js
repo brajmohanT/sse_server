@@ -19,15 +19,16 @@ const emojiThrow = (req, res) =>{
           x,
           y,
           userId,
+          username,
           timestamp: Date.now()
         }
     */
 
-    if(!body.emoji || !body.x || !body.y || !body.userId || !body.timestamp){
+    if(!body.emoji || !body.x || !body.y || !body.userId || !body.username || !body.timestamp){
         return res.status(400).json({error: "missing params"})
     }
 
-    sendToAll({emoji: body.emoji, x: body.x, y: body.y, userId: body.userId, timestamp: body.timestamp })
+    sendToAll({emoji: body.emoji, x: body.x, y: body.y, userId: body.userId, username: body.username, timestamp: body.timestamp })
 
     res.status(201).send({
         message: "Emoji thrown successfully",
